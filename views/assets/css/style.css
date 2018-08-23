@@ -9,6 +9,20 @@ h1, h2, h3 {margin: 0;}
 ul, ol {margin: 0;}
 p {margin: 0;}
 
+.show{
+    display: block;
+}
+.error_show{
+    border:1px solid pink;
+}
+.avrt{
+    display:none;
+}
+.avartar{
+    color:red  !important;
+    display:block;
+    
+}
 .error-info h3 {
     font-size: 10em;
     text-transform: uppercase;
@@ -16,9 +30,9 @@ p {margin: 0;}
     font-weight: 500;
     letter-spacing: 12px;
 }
-.error-icon{color:#fb1414 !important;}
-button#logout{background: #fb1414 !important;
-border-radius:10px;} /*This is Found in error class */
+.error-icon{color:rgb(240, 188, 180) !important;}
+button#logout{background: rgb(240, 188, 180)!important;
+border-radius:10px; color: red !important; font-size: 1em;} /*This is Found in error class */
 /*  */
 .error-info h2 {
     font-size: 5em;
@@ -53,15 +67,33 @@ border-radius:10px;} /*This is Found in error class */
      padding: 12px 0px;
      letter-spacing: 2px;
      display: inline-block;
-     background: #147efb ; /* f0bcb4 */
+     background: #744e7d ; /* f0bcb4 */
      transition: 0.5s all;
      -webkit-transition: 0.5s all;
      -o-transition: 0.5s all;
      -moz-transition: 0.5s all;
      -ms-transition: 0.5s all;
  }
- .error-info button#update:hover, .error-info button#logout:hover {
-     background: #bfa145 !important;
+ .error-info button#update, .error-info button#logout {
+     font-size: 1em;
+     text-transform: uppercase;
+     color: white;
+     width: 18%;
+     border:0px ;
+     border-radius:10px;
+     margin-bottom:30px;
+     padding: 12px 0px;
+     letter-spacing: 2px;
+     display: inline-block;
+     background: #744e7d ; /* f0bcb4 */
+     transition: 0.5s all;
+     -webkit-transition: 0.5s all;
+     -o-transition: 0.5s all;
+     -moz-transition: 0.5s all;
+     -ms-transition: 0.5s all;
+ }
+ .error-info button#update:hover, .error-info button#logout:hover{
+     background: #1d21f0 !important;
      transition: 0.5s all;
      -webkit-transition: 0.5s all;
      -o-transition: 0.5s all;
@@ -69,6 +101,10 @@ border-radius:10px;} /*This is Found in error class */
      -ms-transition: 0.5s all;
      border:0px ;
  }
+  .error-info button#logout:hover {
+    background: #ee1f1f !important;
+    color:white !important;
+}
 
 html, body{
 	font-family: 'Roboto', sans-serif;
@@ -318,7 +354,7 @@ a.logo:hover,a.logo:focus {
     outline:none;
 }
 a.logo span {
-    color: #147efb; /*FF6C60*/
+    color: #fff; /*FF6C60*/
 }
 /*notification*/
 #top_menu .nav>li,ul.top-menu>li {
@@ -551,6 +587,12 @@ ul.top-menu>li>a:hover,ul.top-menu>li>a:focus {
 .dropdown-menu.extended.logout>li>a:hover i {
     color:#ffa2a2;
 }
+.dropdown-menu.extended.logout>li>a:hover i#logout {
+    color:red;
+}
+.dropdown-menu.extended.logout>li>a:hover i#profile {
+    color:#744e7d;
+}
 .dropdown-menu.extended.logout>li>a i {
     font-size:17px;
 }
@@ -768,6 +810,23 @@ ul.top-menu>li>a:hover,ul.top-menu>li>a:focus {
   -moz-transition: 0.5s all;
   -o-transition: 0.5s all;
 }
+.ch{
+    background-color:transparent !important; cursor:pointer;
+}
+.chh:hover{ background: #8b5c7e !important;}
+.uploadViews{
+    width:auto;
+    height:auto;
+    overflow:scroll;
+    border:1px solid silver;
+
+}
+.uploadViews img{
+    margin-left:auto;
+    margin-right:auto;
+
+}
+/* .chhh:hover{ background:#333!important;} */
 .market-update-block.clr-block-4 {
     background:#2a2727;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
@@ -803,12 +862,17 @@ ul.top-menu>li>a:hover,ul.top-menu>li>a:focus {
   -webkit-transition: 0.5s all;
   -moz-transition: 0.5s all;
   -o-transition: 0.5s all;
-}
-.market-update-right i.fa.fa-users {
+}   i.fa.fa-pencil{color:rgb(226, 177, 177) !important;} 
+.market-update-right i.fa.fa-users,i.fa.fa-calendar,i.fa.fa-bullhorn,i.fa.fa-pencil {
     font-size: 3em;
     color:#fff;
    text-align: left;
 }
+/* .market-update-right i.fa.fa-users {
+    font-size: 3em;
+    color:#fff;
+   text-align: left;
+} */
 .market-update-right i.fa.fa-eye {
      font-size: 3em;
     color:#fff;

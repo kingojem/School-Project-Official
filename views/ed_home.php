@@ -58,7 +58,7 @@
             <div class="col-sm-12"><?php 
             include_once '../controllers/Errors_Show.php';
             $errors = new Errors_Show();
-            $modelLink = new Users;
+           
                 ?>
                  </div>
                 <section class="panel">
@@ -72,21 +72,24 @@
                        
                         <form id="upload" method="post" action="../controllers/users.php" enctype="multipart/form-data">
                             <div id="drop">
-                                 <input type="file" name="image" style="background-color:transparent;" >
+                                 <input required="" type="file" name="image" style="background-color:transparent;" >
                                  <!-- <button type="upload" class="btn btn-danger">Upload Here </button> -->
                                  <a>Upload</a> 
                             </div> 
                             <ul class="uploadViews">
                                 <!-- The file uploads will be shown here -->
-                                <?php $currentImage =  $modelLink->updateUserView() ?>
+                                <?php
+                                 $modelLink = new Users;
+                                $currentImage =  $modelLink->displayInfo($data="image") ?>
                                 <a href="JavaScript:;"><img src="<?php echo '../images/photos/'.$currentImage?>" title="Current Banner"></a>
-                                
+                              
                             </ul><br>
-                            <textarea name="description" id="description" row="10"  cols="80">
-                                Edit The WebPage
+                            <textarea  name="description" id="description" row="10"  cols="80">
+                                <h1  class="animated fadeInDown">(image is required to submit) This h1 with two class named ANIMATED &amp; FADEINDOWN,click source to add Style or class for proper edit    </h1>
+                        
                             </textarea>
                             <textarea name="description1" id="description1" row="10"  cols="80">
-                                Edit The WebPagey
+                            <p class="animated fadeInUp"> (image is required to submit) This p with two class named ANIMATED &amp; FADEINDOWN, click source to add Style or class for proper edit</p>
                             </textarea>
                             <script>
                                 CKEDITOR.replace('description');

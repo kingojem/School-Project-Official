@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <head>
 <title>Home After| Dashboard</title>
@@ -43,7 +42,8 @@
      }
      include_once HELPERS.'/session.php';
      include_once MODELS.'/users.php';
-     $sessionCall = new Session;
+	 $sessionCall = new Session; //Helpers
+	 $hhh = new Users; //This is from Models
      if(isset($_SESSION['matric_no'])){
 		if(!isset($_GET['error']) && !isset($_GET['error1'])){
 			if($_SESSION['first_name'] == null){
@@ -114,7 +114,7 @@
 														<p id="test1" class="avrt"> Picture Error: Do Ensure Your Picture is in the right Format(png/jpg/jpeg) And Its Not Too Large Or Corrupted</p>
 													</div>
 													<p class="form-message"></p>
-													<button href="#myModal1" id="next" class= "btn btn-primary "data-toggle="modal" name="next" type="submit" class="btn btn-info btn-md">Update</button>
+													<button href="#myModal1" id="next" class= "btn btn-primary "data-toggle="modal" name="update" type="submit" class="btn btn-info btn-md">Update</button>
 												</form>
 											</div>
 											</div>
@@ -158,7 +158,7 @@
 	</script>
 
 			<?php
-}else{
+}elseif($_SESSION['users_role_info'] =='admin'){
 			?>
 <body>
 <section id="container">
@@ -177,9 +177,11 @@
 						<i class="fa fa-eye"> </i>
 					</div>
 					 <div class="col-md-8 market-update-left">
-					 <h4>Visitors</h4>
-					<h3>13,500</h3>
-					<p>Other hand, we denounce</p>
+					 <h4>Registered Tenants</h4>
+					<h3><?php 
+						echo $hhh->getUsers(false);
+						?></h3>
+					<p>Users without Pending Approvals or active subscription</p>
 				  </div>
 				  <div class="clearfix"> </div>
 				</div>
@@ -190,9 +192,9 @@
 						<i class="fa fa-users" ></i>
 					</div>
 					<div class="col-md-8 market-update-left">
-					<h4>Users</h4>
-						<h3>1,250</h3>
-						<p>Other hand, we denounce</p>
+					<h4>Approved Tenants</h4>
+						<h3><?php echo $hhh->getUsers(); ?></h3>
+						<p>Users With Approved rooms</p>
 					</div>
 				  <div class="clearfix"> </div>
 				</div>
@@ -216,7 +218,7 @@
 						<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 					</div>
 					<div class="col-md-8 market-update-left">
-						<h4>Orders</h4>
+						<h4>Sales Request</h4>
 						<h3>1,500</h3>
 						<p>Other hand, we denounce</p>
 					</div>
@@ -453,7 +455,7 @@
  <!-- footer -->
 		  <div class="footer">
 			<div class="wthree-copyright">
-			  <p>© <?php echo Date(Y) ?>Visitors. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+			  <p> © <?php echo Date('Y') ?> HOme After| Modefied by <a href="http://linkedin/in/kingojem.com">KING OJEM</a> &AMP; <a href="http://w3layouts.com">W3layouts</a></p>
 			</div>
 		  </div>
   <!-- / footer -->
@@ -562,7 +564,9 @@
 		?>
 
 		<?php
-    }else{
+    }if($_SESSION['users_role_info'] =='user'){
+		header("location:profile.php");
+	}else{
 		header("location:../login.php");
 	}
     

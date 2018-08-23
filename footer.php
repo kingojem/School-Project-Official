@@ -1,7 +1,3 @@
-
-
-
-
 <footer class="spacer">
         <div class="container">
             <div class="row">

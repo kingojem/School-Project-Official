@@ -79,6 +79,58 @@ class Errors_Show{
            <?php
            //Checks if User Alredy Exists, Flags This Error if True
         }
+        if(isset($_GET['error'] )){
+          ?>
+            <script>
+                (function($){
+                   $(document).ready(function(){
+                        $('#myModal').removeClass('fade');
+                        $('#myModal').addClass('show');
+                        $('#user_first_name, #user_last_name, #user_dob, #user_sex').addClass('error_show');
+                        $('.test').addClass('avartar');
+                        //$('#user_first_name').addCustomValidity('here');
+                        // $('#user_last_name').addClass('error_show');
+                        $('#close').click(function(){
+                            $('#myModal').addClass('fade');
+                            $('#myModal').removeClass('show');
+                            $('#user_first_name, #user_last_name, #user_dob, #user_sex').removeClass('error_show');
+                            $('.test').removeClass('avartar');
+                            $('#user_first_name, #user_last_name, #user_dob').val("");
+                        // $('window').load();
+                        });
+
+                    })
+                })(jQuery)
+            </script>
+            
+            
+   <?php
+            
+    }
+    if(isset($_GET['error1'])){
+        ?>
+            <script>
+                (function($){
+                   $(document).ready(function(){
+                        $('#myModal').removeClass('fade');
+                        $('#myModal').addClass('show');
+                        $('#test1').addClass('avartar');
+                        
+                        $('#close').click(function(){
+                            $('#myModal').addClass('fade');
+                            $('#myModal').removeClass('show');
+                            $('#test1').removeClass('avartar')
+                        });
+                    })
+                })(jQuery)   
+            </script>
+        <?php
+    }
+    if(isset($_GET['msg'])){
+        ?>
+       <div class ="alert alert-warning" style="text-align:center; font-size:15px;color:black;" >Error Uploading Your Image Try Ensure you in the right format(png/jpg/jpeg) and right image size and Dimention.<br> NOTICE: All Fields Are Required</div>
+       <?php
+       //Checks if User Alredy Exists, Flags This Error if True
     }
 }
-?>
+}

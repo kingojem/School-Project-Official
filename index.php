@@ -1,12 +1,24 @@
-<?php include 'header.php';?>
+<?php 
+
+include 'header.php';
+include_once 'models/users.php';
+ $modelLink = new Users;
+
+   
+?>
 <!-- banner -->
-<div class="banner">    	   
-    <img src="images/photos/banner.jpg"  class="img-responsive" alt="slide">
+<div class="banner"> 
+                <?php
+                $currentImage =  $modelLink->displayInfo($data="image");
+                ?>   	   
+    <img src="<?php echo 'images/photos/'.$currentImage?>"  class="img-responsive" alt="slide">
     <div class="welcome-message">
         <div class="wrap-info">
             <div class="information">
-                <h1  class="animated fadeInDown">Get The Best &amp; Affordable Hostel Accomodation</h1>
-                <p class="animated fadeInUp">Most Excellent Accomodation on Campus With Excellent Student Service.</p>                
+            <?php   echo $currentImage =  $modelLink->displayInfo($data="bannertext1"); ?>
+           <?php echo $currentImage =  $modelLink->displayInfo($data="bannertext2");?>
+                <!-- <h1  class="animated fadeInDown" style="color:white">Get The Best &amp; Affordable Hostel Accomodation</h1> -->
+                <!-- <p class="animated fadeInUp">Most Excellent Accomodation on Campus With Excellent Student Service.</p>                 -->
             </div>
             <a href="#information" class="arrow-nav scroll wowload fadeInDownBig"><i class="fa fa-angle-down"></i></a>
         </div>

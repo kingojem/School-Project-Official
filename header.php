@@ -1,3 +1,7 @@
+<?php
+error_reporting(0);
+session_start();
+?>
 <!DOCTYPE html>
 <html >
 <head>
@@ -48,7 +52,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.php"><img src="images/logo.png"  alt="holiday crown"></a>
+      <a class="navbar-brand" href=index.php><img src="images/logo.png"  alt="holiday crown"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -57,9 +61,29 @@
       <ul class="nav navbar-nav">        
         <li><a href="index.php">Home </a></li>
         <li><a href="rooms-tariff.php">Rooms & Tariff</a></li>        
-        <li><a href="login.php">Login</a></li>
-        <li><a href="registration.php">Register</a></li>
+       <?php
+        $views = 'views/';
+          if(isset($_SESSION['matric_no'])){
+            ?>
+              <li><a href=<?php echo "views/"?>>Profile</a></li>
+            <?php
+          }else{
+            
+            ?>
+            
+            <li><a href="login.php">Login</a></li>
+            <li><a href="registration.php">Register</a></li>
+            <?php
+          }
+        ?>
         <li><a href="contact.php">Contact</a></li>
+        <?php
+          if(isset($_SESSION['matric_no'])){
+            ?>
+              <li><a href="logout.php">Log Out</a></li>
+            <?php
+          }
+        ?>
       </ul>
     </div><!-- Wnavbar-collapse -->
   </div><!-- container-fluid -->

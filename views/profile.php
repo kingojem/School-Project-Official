@@ -77,7 +77,44 @@ $helpers = '../helpers';
                                 <div  style="float:right; " class="col-md-3 market-update-gd">
                             <div class="market-update-block ch" style="width:15%;height:60px;margin-top:18%;padding:0px;margin-left:55%;">
                                 <div class="col-md-4 market-update-right">
-                                    <i class="fa fa-pencil" ></i>
+                                    <i class="fa fa-pencil" data-toggle="modal" href="#myModal"></i>
+                                    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+                            		<div class="modal-dialog">
+                                		<div class="modal-content">
+                                    		<div class="modal-header">
+                                            <button aria-hidden="true" data-dismiss="modal" class="close" id ="close" type="button">×</button>
+                                        		<h4 class="modal-title" style="color:blue;">Update Your Profile</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form method="POST" action="../controllers/users.php">
+                                                    <div class="form-group">
+                                                        <label for="update_num"> Number </label> <input type="number" class="form-control" placeholder="Your Number" name="update_num" id="update_num" > <label for="update_mail">Email</label> <input type="email" class="form-control" placeholder="Your Email" name="update_mail" id="update_mail">
+                                                        <label for="update_department"> Department </label><input type="text" required="true" class="form-control" placeholder="Your Department" name="update_department" id="update_department">
+                                                        <label for="falculty"></label>
+                                                        <select id="falculty" name="faculty" class="form-control" required="true">
+                                                            <option value="Falculty">Falculty</option>
+                                                            <option value="Science">Science</option>
+                                                            <option value="Art">Art</option>
+                                                            <option value="Social Science">Social Science</option>
+                                                            <option value="Management Science">Management Science</option>
+                                                            <option value="Medical Sciences">Medical Sciences</option>
+                                                            <option id="falculty_other" value="Other">Other</option>
+                                                        </select>
+                                                        <hr>
+                                                    </div>
+                                                    <div class="form-group">
+                                                    <label for ="next_of_kin_name">Next Of Kin Name</label><input type="text" required="true" placeholder="Next Of Kin" name="next_of_kin_name" id="next_of_kin_name" class="form-control">
+                                                    <label for="next_of_kin_number"> Next Of Kin Number </label> <input type="number" required="true" class="form-control" placeholder="Next Of Kin Number" name="next_of_kin_number" id="next_of_kin_number" >
+                                                    <label for="next_of_kin_email"> Next Of Kin Email </label> <input type="email" required="true" class="form-control" placeholder="Next Of Kin Email" name="next_of_kin_email" id="next_of_kin_email" >
+                                                    <br>
+                                                    <button type="submit" class="btn btn-success form-control" name="update_profile">Update</button>
+
+
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="clearfix"> </div>
                             </div>
@@ -117,8 +154,8 @@ $helpers = '../helpers';
                         </div>
                 </section>
                 <aside style="background-color:red; width:40%; margin-right:2%; float:right;" class="">
-dddd
                 </aside>
+            </section>
             </section>
     </body>
     <script src="assets/js/bootstrap.js"></script>

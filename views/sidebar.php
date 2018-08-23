@@ -4,31 +4,52 @@
         <!-- sidebar menu start-->
         <div class="leftside-navigation">
             <ul class="sidebar-menu" id="nav-accordion">
-                <li>
-                    <a class="active" href="index.html">
+                <?php 
+                 if( $_SESSION['users_role_info'] == 'admin'){
+                    ?>
+                    <li>
+                    <a class="active" href="index.php">
                         <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
-                
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-book"></i>
-                        <span>UI Elements</span>
-                    </a>
-                    <ul class="sub">
-						<li><a href="typography.html">Typography</a></li>
-						<li><a href="glyphicon.html">glyphicon</a></li>
-                        <li><a href="grids.html">Grids</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="fontawesome.html">
-                        <i class="fa fa-bullhorn"></i>
-                        <span>Font awesome </span>
-                    </a>
-                </li>
-                <li class="sub-menu">
+                <?php
+                 }
+                 ?>
+                <?php 
+                    if( $_SESSION['users_role_info'] == 'admin'){
+                        ?>
+                            <li class="sub-menu">
+                                <a href="javascript:;">
+                                    <i class="fa fa-book"></i>
+                                    <span>UI Elements || Edits &amp; Uploads</span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a href="ed_home.php">Home Page</a></li>
+                                    <li><a href="glyphicon.html">Rooms &amp; Tarriff</a></li>
+                                    <li><a href="grids.html">Grids</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="fontawesome.html">
+                                    <i class="fa fa-thumbs-o-up"></i>
+                                    <span>Approvals </span>
+                                </a>
+                            </li>
+                        <?php
+                    }else{
+                        ?>
+                           <li>
+                                <a href="fontawesome.html">
+                                    <i class="fa fa-credit-card"></i>
+                                    <span> Rental Payment &amp; Subscriptions </span>
+                                </a>
+                            </li> 
+                        <?php
+                    }
+                ?>
+               
+                <!-- <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-th"></i>
                         <span>Data Tables</span>
@@ -48,18 +69,18 @@
                         <li><a href="form_validation.html">Form Validation</a></li>
 						<li><a href="dropzone.html">Dropzone</a></li>
                     </ul>
-                </li>
+                </li> -->
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-envelope"></i>
                         <span>Mail </span>
                     </a>
                     <ul class="sub">
-                        <li><a href="mail.html">Inbox</a></li>
+                        <li><i class = ""></i><a href="mail.html">Inbox</a></li>
                         <li><a href="mail_compose.html">Compose Mail</a></li>
                     </ul>
                 </li>
-                <li class="sub-menu">
+                <!-- <li class="sub-menu">
                     <a href="javascript:;">
                         <i class=" fa fa-bar-chart-o"></i>
                         <span>Charts</span>
@@ -89,13 +110,29 @@
 						<li><a href="404.html">404 Error</a></li>
                         <li><a href="registration.html">Registration</a></li>
                     </ul>
-                </li>
-                <li>
-                    <a href="login.html">
-                        <i class="fa fa-user"></i>
-                        <span>Login Page</span>
-                    </a>
-                </li>
+                </li> -->
+                <?php 
+                    if( $_SESSION['users_role_info'] == 'admin'){
+                        ?>
+                             <li>
+                                <a href="#">
+                                    <i class="fa fa-info"></i>
+                                    <span>Create Advert</span>
+                                </a>
+                            </li>
+                        <?php
+                    }else{
+                        ?>
+                           <li>
+                                <a href="#">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span>Sell My Space</span>
+                                </a>
+                            </li> 
+                        <?php
+                    }
+                ?>
+               
             </ul>            
         </div>
          <!-- sidebar menu end-->

@@ -15,7 +15,6 @@ class Database{
       $this->connect = new PDO($dsn,$dbUser,$dbPassword);
       $this->connect->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
     }
-    
     public function getConnection(){
         try{
             return  $this->connect;

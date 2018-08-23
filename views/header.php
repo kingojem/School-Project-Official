@@ -1,16 +1,18 @@
 <?php
-    $admin = '../admin/';
-    $user = '../user/';
-    define('ADMIN',$admin);
-    define('USER',$user) ;
-        if((!is_dir(ADMIN)) || !is_dir(USER)){
-            header('location:../../error.php');
+ session_start();
+    $asset = 'assets/';
+    $account = 'accounts/';
+    define('ASSET',$asset);
+    define('ACCOUNT',$account) ;
+        if((!is_dir(ASSET)) || (!is_dir(ACCOUNT))){
+            header('location:../error.php');
         }else{
-            ?>
+        include_once MODELS."/database.php";
+           ?>
 <header class="header fixed-top clearfix">
 <!--logo start-->
 <div class="brand">
-    <a href="../../index.php" class="logo">
+    <a href="../" class="logo">
 	<span class="glyphicon glyphicon-home" title="Home" aria-hidden="true"></span>
     </a>
     <div class="sidebar-toggle-box">
@@ -36,79 +38,87 @@
         </script>
         <?php
     }else{
+        $database = new Database();
+        $connect = $database->getConnection();
         ?>
         <div class="nav notify-row" id="top_menu">
     <!--  notification start -->
     <ul class="nav top-menu">
         <!-- settings start -->
-<li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <i class="fa fa-tasks"></i>
-                <span class="badge bg-success">8</span>
-            </a>
-            <ul class="dropdown-menu extended tasks-bar">
-                <li>
-                    <p class="">You have 8 pending tasks</p>
-                </li>
-                <li>
-                    <a href="#">
-                        <div class="task-info clearfix">
-                            <div class="desc pull-left">
-                                <h5>Target Sell</h5>
-                                <p>25% , Deadline  12 June’13</p>
-                            </div>
-                                    <span class="notification-pie-chart pull-right" data-percent="45">
-                            <span class="percent"></span>
-                            </span>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div class="task-info clearfix">
-                            <div class="desc pull-left">
-                                <h5>Product Delivery</h5>
-                                <p>45% , Deadline  12 June’13</p>
-                            </div>
-                                    <span class="notification-pie-chart pull-right" data-percent="78">
-                            <span class="percent"></span>
-                            </span>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div class="task-info clearfix">
-                            <div class="desc pull-left">
-                                <h5>Payment collection</h5>
-                                <p>87% , Deadline  12 June’13</p>
-                            </div>
-                                    <span class="notification-pie-chart pull-right" data-percent="60">
-                            <span class="percent"></span>
-                            </span>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div class="task-info clearfix">
-                            <div class="desc pull-left">
-                                <h5>Target Sell</h5>
-                                <p>33% , Deadline  12 June’13</p>
-                            </div>
-                                    <span class="notification-pie-chart pull-right" data-percent="90">
-                            <span class="percent"></span>
-                            </span>
-                        </div>
-                    </a>
-                </li>
-
-                <li class="external">
-                    <a href="#">See All Tasks</a>
-                </li>
-            </ul>
-        </li>
-        <!-- settings end -->
+        <?php 
+            if($_SESSION['users_role_info']=='admin'){
+                ?>
+                <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <i class="fa fa-tasks"></i>
+                                <span class="badge bg-success">8</span>
+                            </a>
+                            <ul class="dropdown-menu extended tasks-bar">
+                                <li>
+                                    <p class="">You have 8 pending tasks</p>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="task-info clearfix">
+                                            <div class="desc pull-left">
+                                                <h5>Target Sell</h5>
+                                                <p>25% , Deadline  12 June’13</p>
+                                            </div>
+                                                    <span class="notification-pie-chart pull-right" data-percent="45">
+                                            <span class="percent"></span>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="task-info clearfix">
+                                            <div class="desc pull-left">
+                                                <h5>Product Delivery</h5>
+                                                <p>45% , Deadline  12 June’13</p>
+                                            </div>
+                                                    <span class="notification-pie-chart pull-right" data-percent="78">
+                                            <span class="percent"></span>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="task-info clearfix">
+                                            <div class="desc pull-left">
+                                                <h5>Payment collection</h5>
+                                                <p>87% , Deadline  12 June’13</p>
+                                            </div>
+                                                    <span class="notification-pie-chart pull-right" data-percent="60">
+                                            <span class="percent"></span>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="task-info clearfix">
+                                            <div class="desc pull-left">
+                                                <h5>Target Sell</h5>
+                                                <p>33% , Deadline  12 June’13</p>
+                                            </div>
+                                                    <span class="notification-pie-chart pull-right" data-percent="90">
+                                            <span class="percent"></span>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                
+                                <li class="external">
+                                    <a href="#">See All Tasks</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- Tasks end -->
+                        <?php
+            }
+        ?>
         <!-- inbox dropdown start-->
         <li id="header_inbox_bar" class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -173,8 +183,11 @@
             </ul>
         </li>
         <!-- inbox dropdown end -->
-        <!-- notification dropdown start-->
-        <li id="header_notification_bar" class="dropdown">
+        <?php 
+            if($_SESSION['users_role_info']=='admin'){
+                ?>
+<!-- notification dropdown start-->
+<li id="header_notification_bar" class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 
                 <i class="fa fa-bell-o"></i>
@@ -212,30 +225,59 @@
             </ul>
         </li>
         <!-- notification dropdown end -->
+                <?php
+            }
+        ?>
+        
     </ul>
     <!--  notification end -->
 </div>
 <div class="top-nav clearfix"> 
     <!--search & user info start-->
     <ul class="nav pull-right top-menu">
-        <li>
-            <input type="text" class="form-control search " placeholder=" Search">
-        </li>
+        <?php 
+            if($_SESSION['users_role_info']=='admin'){
+                ?>
+                 <li>
+                    <input type="text" class="form-control search " placeholder=" Search Users">
+                </li>
+                <?php
+            }
+        ?>
+       
         <!-- user login dropdown start-->
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <img alt="" src="../assets/images/2.png">
-                <span class="username">John Doe</span>
+                <?php
+                    if($_SESSION['profile_image'] != null){
+                        ?>
+                            <img src='<?php echo "accounts/". $_SESSION['profile_image']?>'>
+                        <?php
+                    }else{
+                        ?>
+                            <img src='assets/images/2.jpg'>
+                        <?php
+                    }
+                ?>
+                <span class="username"><?php echo ucfirst($_SESSION['first_name']) . " ".ucfirst($_SESSION['last_name']) ?></span>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
-                <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
-                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
-            </ul>
+                <?php 
+                $url = 'profile.php'; 
+                    if($_SESSION['users_role_info'] == 'user'){
+                        ?>
+                            <li><a href="<?php echo $url ?>" id = "profile" class="btn-link"><i id = "profile"  class=" fa fa-suitcase"></i>Profile</a></li>
+                        <?php
+                    }
+                ?>
+                <li><a href="#" class="btn-link"><i class="fa fa-cog"></i> Settings</a></li>
+                <li><a href="../logout.php" class="btn-link"><i id = "logout" class="fa fa-power-off"></i> Log Out</a></li>
+                <!-- <a href=""> -->
+                </ul>
         </li>
         <!-- user login dropdown end -->
-       
+                     
     </ul>
     <!--search & user info end-->
 </div>
@@ -248,3 +290,4 @@
             <?php
         }
 ?>
+        
