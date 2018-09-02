@@ -139,6 +139,8 @@
                     #@params function by admin only
 
                     public function updateUserView($data =[]){
+
+                        #@params for image diplayed in the homepage banner
                             $img = $data['image'];
                             $txt = $data['text'];
                             $txt1 = $data['text1'];
@@ -155,6 +157,7 @@
                                 }
                             }
                             return $status;
+                            #ends here
                         }
                         
                     #@params by admin to display content following the image being displayed;
@@ -185,9 +188,39 @@
                                     return  $txt['post2'];
                                 }
                         }
-                       
+                       #ends
                     }
-            }
+
+                    public function profileUpdate($data=[]){
+                        $status = false;
+                        $thisUser = $data['user'];
+                        $department = $data['department'];
+                        $falculty = $data['falculty'];
+                        $next_of_kin_name = $data['next_of_kin_name'];
+                        $next_of_kin_number = $data['next_of_kin_number'];
+                        $next_of_kin_mail = $data['next_of_kin_mail'];
+
+                            $sql="SELECT * FROM tenant WHERE matric_no = ?";
+                            $stmt= $this->database->prepare($sql);
+                            $stmt->execute(["$thisUser"]);
+                                if($stmt == true){
+                                    $count = $stmt->rowCount();
+                                    echo $count ."<br><br>";
+                                    if($count == 1){
+                                        $sql="INSERT INTO  tenant(department) VALUES(?) WHERE user_id  = ? ";
+                                        $stmt= $this->database->prepare($sql);
+                                        $stmt->execute([$department,$thisUser]);
+                                        echo $stmt->rowCount();
+                                        die();
+                                        if($stmt == true){
+                                            $status = true;
+
+                                            return $status;
+                                        }
+                                    }
+                                }
+                    }
         }
+    }
 
 ?>

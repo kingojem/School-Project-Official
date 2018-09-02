@@ -26,8 +26,8 @@
                                 </a>
                                 <ul class="sub">
                                     <li><a href="ed_home.php">Home Page</a></li>
-                                    <li><a href="glyphicon.html">Rooms &amp; Tarriff</a></li>
-                                    <li><a href="grids.html">Grids</a></li>
+                                    <!-- <li><a href="glyphicon.html">Rooms &amp; Tarriff</a></li>
+                                    <li><a href="grids.html">Grids</a></li> -->
                                 </ul>
                             </li>
                             <li>

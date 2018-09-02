@@ -74,6 +74,7 @@ $helpers = '../helpers';
                                         <?php
                                     }
                                 ?>
+                                
                                 <div  style="float:right; " class="col-md-3 market-update-gd">
                             <div class="market-update-block ch" style="width:15%;height:60px;margin-top:18%;padding:0px;margin-left:55%;">
                                 <div class="col-md-4 market-update-right">
@@ -82,17 +83,17 @@ $helpers = '../helpers';
                             		<div class="modal-dialog">
                                 		<div class="modal-content">
                                     		<div class="modal-header">
-                                            <button aria-hidden="true" data-dismiss="modal" class="close" id ="close" type="button">×</button>
+                                                <button aria-hidden="true" data-dismiss="modal" class="close" id ="close" type="button">×</button>
                                         		<h4 class="modal-title" style="color:blue;">Update Your Profile</h4>
                                             </div>
                                             <div class="modal-body">
                                                 <form method="POST" action="../controllers/users.php">
                                                     <div class="form-group">
-                                                        <label for="update_num"> Number </label> <input type="number" class="form-control" placeholder="Your Number" name="update_num" id="update_num" > <label for="update_mail">Email</label> <input type="email" class="form-control" placeholder="Your Email" name="update_mail" id="update_mail">
+                                                    <input type ="hidden" class="form-control" name ='thisuser' value='<?php echo $_SESSION['user_id']?>'>
                                                         <label for="update_department"> Department </label><input type="text" required="true" class="form-control" placeholder="Your Department" name="update_department" id="update_department">
                                                         <label for="falculty"></label>
                                                         <select id="falculty" name="faculty" class="form-control" required="true">
-                                                            <option value="Falculty">Falculty</option>
+                                                            <option value="Faculty">Falculty</option>
                                                             <option value="Science">Science</option>
                                                             <option value="Art">Art</option>
                                                             <option value="Social Science">Social Science</option>
@@ -122,6 +123,44 @@ $helpers = '../helpers';
                                 </div>
                             </div>
                         </div>
+                                    <?php 
+                                        include_once '../controllers/Errors_Show.php';
+                                        $erorShow = new Errors_Show();
+                                    ?>
+                        <div aria-hidden ="true" aria-labelledby=myModalLabel role="dialog" tabindex="-1" id="myModal1" class="modal fade">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h3 class="modal-title" style="color:red; text-align:center">Profile Update Failed</h3>
+                                            </div>
+                                            <div class="modal-body">
+                                                <span style="margin-left:35%;"><button type="button" style='margin-right:25px' id="open" class="btn btn-primary btn-lg" data-togle="modal" href="#myModal">Retry</button>
+                                                    <button type="button" class="btn btn-danger btn-lg" id="closey" data-dismiss="modal" >Skip</button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
+                                    if($_SESSION['next_of_kin_name']== null){
+                                        ?>
+                                        <!-- <div aria-hidden ="true" aria-labelledby=myModalLabel role="dialog" tabindex="-1" id="myModal1" class="modal fade">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h3 class="modal-title" style="color:lemon; text-align:center">Profile Update Failed</h3>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                    <button type="button" class="btn btn-danger btn-lg" id="closey" data-dismiss="modal" >Ok</button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>  -->
+                                        <?php
+                                        #this need review
+                                    }
+                                ?>
                     </section>
                     <section class ="">
                         <div class="col-md-3 market-update-gd">
@@ -152,6 +191,7 @@ $helpers = '../helpers';
                                 <div class="clearfix"> </div>
                             </div>
                         </div>
+                        
                 </section>
                 <aside style="background-color:red; width:40%; margin-right:2%; float:right;" class="">
                 </aside>
@@ -170,4 +210,5 @@ $helpers = '../helpers';
 }else{
     header("location:../login.php");
 }
+
 ?>

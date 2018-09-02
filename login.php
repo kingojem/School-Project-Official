@@ -22,7 +22,7 @@ class LoginUser{
 	$sessions= new Session();
  }
  public function login(){
-	if (isset($_SESSION)){
+	if (isset($_SESSION) && $_SESSION['first_name']==null){
 	?><?php
 	include 'header.php';?>
 <?php include_once CONTROL.'/errors_show.php'?>
@@ -43,9 +43,11 @@ class LoginUser{
 </div>
 <?php include 'footer.php';?>
 <?php
-	}
-	else{
-		exit('session not set');
+	}else if(isset($_SESSION) && $_SESSION['firstname']!= null){
+		header("location:index.php");
+
+	}else{
+		header("location:index.php");
 	}
 }
 }

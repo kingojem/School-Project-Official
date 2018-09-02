@@ -191,19 +191,30 @@ class UpdateProfile{
 
     public function __construct(){
         $this->errors = new Update_User_Errors();
-        $number =  htmlentities((strtolower(trim($_POST['update_num']))));
-        $email =   htmlentities((strtolower(trim($_POST['update_mail']))));
+        $thisUser = htmlentities((strtolower(trim($_POST['thisuser']))));
         $department = htmlentities((strtolower(trim($_POST['update_department']))));
         $falculty = htmlentities((strtolower(trim($_POST['faculty']))));
         $next_of_kin_name = htmlentities((strtolower(trim($_POST['next_of_kin_name']))));
         $next_of_kin_number = htmlentities((strtolower(trim($_POST['next_of_kin_number']))));
         $next_of_kin_mail = htmlentities((strtolower(trim($_POST['next_of_kin_email']))));
-           
-            if(empty($department)|| empty($next_of_kin_mail || empty($next_of_kin_name || empty($next_of_kin_number)))){
-                $flagError = $this->errors;
+        
+        if(empty($department)|| empty($next_of_kin_mail || empty($next_of_kin_name || empty($next_of_kin_number)))){
+                $flagError =$this->errors->error3();
+        }else if(strlen($department) < 3 || $falculty =='faculty'){
+                $flagError=$this->errors->error3();
+        }else if(strlen($next_of_kin_name)< 3 || !ctype_digit($next_of_kin_number)){
+                $flagError = $this->errors->error3();
+        }else{
+                $users = new Users();
+                if($users->profileUpdate(['user'=>$thisUser,'department'=>$department,'falculty'=>$falculty,'next_of_kin_name'=>$next_of_kin_name,'next_of_kin_mail'=>$next_of_kin_mail,'next_of_kin_number'=>$next_of_kin_name]) == true){
+                    header("location:../views/profile.php");
+                }else{
+                    $flagError = $this->errors->error3();
+                }
             }
+        }
     }
-}
+
 
 class Uploads{
     private $errors;

@@ -83,10 +83,10 @@
 <script src="assets/respond/respond.js"></script>
 
 <!-- gallery -->
-<script src="assets/gallery/jquery.blueimp-gallery.min.js"></script>
+<!-- <script src="assets/gallery/jquery.blueimp-gallery.min.js"></script> -->
 
 <!--ajax-->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <!-- custom script -->
 <script src="assets/script.js"></script>
 

@@ -59,7 +59,7 @@ $index = '../';
     }
     
     /// error while updating profle
-
+    
     class Update_User_Errors{
         public function error1(){
             //this error is flagged when the user frstnamme and or last name is short in string
@@ -69,13 +69,13 @@ $index = '../';
             $header = header("location:../views/?error1");
         }
         public function error3(){
-            $header = header("location:../views/profile.php?error");
+            $header = header("location:../views/profile.php?error34567%4");
         }
     }
 
     class Web_Edit_Error{
          public function notice(){
-             header("location:../views/ed_home.php?msg=err56%4");
+             header("location:../views/ed_home.php?rrr=err56%4");
 
             //  $status= true;
             // return $status. $mssg='';     

@@ -1,5 +1,4 @@
 <head>
-
     <title>Home After| Edit Web Page</title>
     <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
     <link rel="icon" href="../images/favicon.png" type="image/x-icon">
@@ -98,6 +97,15 @@
                             <button type="submit" name="upload"  style=" float:right;"class ="btn btn-lg btn-primary">Upload</button>
                         </form>
                         </div>
+                </section>
+
+                <section class="panel">
+                <header class="panel-heading">
+                        Change Front-Page Banner 
+                        <span class="tools pull-right">
+                            <a href="javascript:;" class="fa fa-chevron-down"></a>
+                        </span>
+                    </header>
                 </section>
                 
             </div>

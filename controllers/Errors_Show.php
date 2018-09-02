@@ -115,7 +115,6 @@ class Errors_Show{
                         $('#myModal').removeClass('fade');
                         $('#myModal').addClass('show');
                         $('#test1').addClass('avartar');
-                        
                         $('#close').click(function(){
                             $('#myModal').addClass('fade');
                             $('#myModal').removeClass('show');
@@ -126,11 +125,38 @@ class Errors_Show{
             </script>
         <?php
     }
-    if(isset($_GET['msg'])){
+    if(isset($_GET['rrr'])){
         ?>
        <div class ="alert alert-warning" style="text-align:center; font-size:15px;color:black;" >Error Uploading Your Image Try Ensure you in the right format(png/jpg/jpeg) and right image size and Dimention.<br> NOTICE: All Fields Are Required</div>
        <?php
        //Checks if User Alredy Exists, Flags This Error if True
+    }
+    if(isset($_GET['error34567%4'])){
+        ?>
+            <script>
+                (function($){
+                    $(document).ready(function(){
+                        $('#myModal1').removeClass('fade');
+                        $('#myModal1').addClass('show');
+
+                        $('#closey').click(function(){
+                            $('#myModal1').addClass('fade');
+                            $('#myModal1').removeClass('show');
+                        });
+                        $('#open').click(function(){
+                            $('#myModal1').addClass('fade');
+                            $('#myModal1').removeClass('show');
+                            $('#myModal').removeClass('fade');
+                            $('#myModal').addClass('show');
+                            $('#close').click(function(){
+                                $('#myModal').addClass('fade');
+                                $('#myModal').removeClass('show');
+                            });
+                        })
+                    })
+                })(jQuery)
+            </script>
+        <?php
     }
 }
 }
