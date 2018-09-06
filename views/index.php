@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php error_reporting(0) ?>
 <head>
 <title>Home After| Dashboard</title>
 <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">

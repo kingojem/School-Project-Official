@@ -158,5 +158,20 @@ class Errors_Show{
             </script>
         <?php
     }
+        //This is a sucess message Displayed to a user after update to profile is succeded
+    if($_SESSION['next_of_kin_name']!= null){
+        ?>
+            <script>
+                (function($){
+                    $(document).ready(function(){
+                        // $('#myModal11').removeClass('fade');
+                        // $('#myModal11').addClass('show');
+                        // $('#myModal11').addClass('fade');
+                        // setTimeout(300);
+                    })
+                })(jQuery)
+            </script>
+        <?php
+        }
 }
 }

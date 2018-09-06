@@ -1,4 +1,5 @@
 <?php 
+error_reporting(0);
 $helpers = "helpers";
 define('HELPERS',$helpers);
 if(!is_dir(HELPERS)){

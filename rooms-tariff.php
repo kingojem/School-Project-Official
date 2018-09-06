@@ -2,7 +2,7 @@
 
 <div class="container">
 
-<h2>Rooms & Tariff</h2>
+<h2>Rooms &amp; Tariff</h2>
 
 
 <!-- form -->
@@ -24,12 +24,13 @@
 
                      <div class="text-center">
                      <ul class="pagination">
-                     <li class="disabled"><a href="#">«</a></li>
-                     <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                     <li><a href="#">2</a></li>
+                     <li class="disabled"><a href="javascript:;">«</a></li>
+                     <li id="pag1" class="active"><a href="javascript:;">1 <span class="sr-only">(current)</span></a></li>
+                     <li id="pag2" class=""><a href="javascript:;">2</a></li>
                      <!-- <li><a href="#">3</a></li>
                      <li><a href="#">4</a></li>
                      <li><a href="#">5</a></li> -->
+                     
                      <li><a href="#">»</a></li>
                      </ul>
                      </div>
@@ -37,3 +38,5 @@
 
 </div>
 <?php include 'footer.php';?>
+<?php
+?>

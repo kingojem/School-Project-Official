@@ -43,6 +43,21 @@ class UsersControl{
                 $upload = new Uploads();
                 $upload->banner();
             }
+            if(isset($_POST['slide1'])){
+               
+                $upload = new Uploads();
+                $upload->slides();
+                
+            }if(isset($_POST['slide2'])){
+                $upload = new Uploads();
+                $upload->slides();
+                
+            }if(isset($_POST['slide3'])){
+                $upload = new Uploads();
+                $upload->slides();
+                
+            }
+
         }else{
             $flagError = $this->errors->noSession();
         }
@@ -206,7 +221,7 @@ class UpdateProfile{
                 $flagError = $this->errors->error3();
         }else{
                 $users = new Users();
-                if($users->profileUpdate(['user'=>$thisUser,'department'=>$department,'falculty'=>$falculty,'next_of_kin_name'=>$next_of_kin_name,'next_of_kin_mail'=>$next_of_kin_mail,'next_of_kin_number'=>$next_of_kin_name]) == true){
+                if($users->profileUpdate(['user'=>$thisUser,'department'=>$department,'falculty'=>$falculty,'next_of_kin_name'=>$next_of_kin_name,'next_of_kin_mail'=>$next_of_kin_mail,'next_of_kin_number'=>$next_of_kin_number]) == true){
                     header("location:../views/profile.php");
                 }else{
                     $flagError = $this->errors->error3();
@@ -232,6 +247,7 @@ class Uploads{
             list($width, $height, $type, $attr) = getImageSize($pictureTemp);
             $fileExtention = explode('.',$pictureName);
             $actualFileExtention =strtolower(end($fileExtention));
+            $actualFileName = $fileExtention[0];
             $fileExtentionAllowed = array('png','jpg','jpeg');
 
            if(!in_array($actualFileExtention,$fileExtentionAllowed)){
@@ -262,6 +278,94 @@ class Uploads{
                }
            }
 
+        }
+
+        public function slides(){
+            $errors = new Web_Edit_Error;
+            $slide = $_POST['slide'];
+           
+            $picture = $_FILES['slide'];
+            $pictureName = $picture['name'];
+            $pictureType = $picture['type'];
+            $pictureSize = $picture['size'];
+            $pictureError = $picture['error'];
+            $pictureTemp = $picture['tmp_name'];
+            list($width, $height, $type, $attr) = getImageSize($pictureTemp);
+            $fileExtention = explode('.',$pictureName);
+            $actualFileName = $fileExtention[0];
+            $actualFileExtention =strtolower(end($fileExtention));
+            $fileExtentionAllowed = array('png','jpg','jpeg');
+            if(!in_array($actualFileExtention,$fileExtentionAllowed)){
+                $errors->notice();
+           }else{
+               if($pictureError != 0){
+                    $errors->notice();
+                }else{
+                   if($width < 1000 || $height < 625){
+                        $errors->notice(); 
+                    }else{
+                        $newFileName = "$actualFileName".".".$actualFileExtention;
+                        $handle = "../images/photos/";
+                        
+                    if(unlink($handle."$newFileName") || unlink($handle."$actualFileName".'.'.'png') || unlink($handle."$actualFileName".'.'.'jpeg') ){
+                        $destination = '../images/photos/'.$newFileName;
+                        move_uploaded_file($pictureTemp, $destination ) or exit('error');
+                            
+                        $users = new Users();
+                        if($slide == 'slide1_1'){
+                           
+                            if($users->updateUserView2($data='slide1_1',$newFileName) == true){
+                               
+                                header("location:../views/ed_home.php");
+                            }
+                            die();
+                        }else if($slide == 'slide1_2'){
+                            
+                            if($users->updateUserView2($data='slide1_2',$newFileName)== true){
+                                header("location:../views/ed_home.php");
+                            }
+                            die();
+                        }else if($slide =='slide1_3'){
+                            if($users->updateUserView2($data='slide1_3',$newFileName)== true){
+                                header("location:../views/ed_home.php");
+                            }
+                            die();
+                        }else if($slide =='slide2_1'){
+                            if($users->updateUserView2($data='slide2_1',$newFileName)== true){
+                                header("location:../views/ed_home.php");
+                            }
+                            die();
+                        }else if($slide =='slide2_2'){
+                            if($users->updateUserView2($data='slide2_2',$newFileName)== true){
+                                header("location:../views/ed_home.php");
+                            }
+                            die();
+                        }else if($slide =='slide2_3'){
+                            if($users->updateUserView2($data='slide2_3',$newFileName)== true){
+                                header("location:../views/ed_home.php");
+                            }
+                            die();
+                        }else if($slide =='slide3_1'){
+                            if($users->updateUserView2($data='slide3_1',$newFileName)== true){
+                                header("location:../views/ed_home.php");
+                            }
+                            die();
+                        }else if($slide =='slide3_2'){
+                            if($users->updateUserView2($data='slide3_2',$newFileName)== true){
+                                header("location:../views/ed_home.php");
+                            }
+                            die();
+                        }else if($slide =='slide3_3'){
+                            if($users->updateUserView2($data='slide3_3',$newFileName)== true){
+                                header("location:../views/ed_home.php");
+                            }
+                            die();
+                        }
+                    }
+                    }
+                }
+            }
+            
         }
 }
 ?>

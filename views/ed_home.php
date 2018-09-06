@@ -47,18 +47,20 @@
     ?>
         <?php include_once 'header.php';?>
         <?php include_once 'sidebar.php';?>	
+        
 <!--main content start-->
 
 <section id="main-content">
 	<section class="wrapper">
-		<div class="form-w3layouts">
-        <!-- page start-->
-        <div class="row">
-            <div class="col-sm-12"><?php 
+    <?php 
             include_once '../controllers/Errors_Show.php';
             $errors = new Errors_Show();
            
                 ?>
+		<div class="form-w3layouts">
+        <!-- page start-->
+        <div class="row">
+            <div class="col-sm-12">
                  </div>
                 <section class="panel">
                     <header class="panel-heading">
@@ -70,7 +72,7 @@
                     <div class="panel-body">
                        
                         <form id="upload" method="post" action="../controllers/users.php" enctype="multipart/form-data">
-                            <div id="drop">
+                            <div id="drop"  class= "col-lg-2">
                                  <input required="" type="file" name="image" style="background-color:transparent;" >
                                  <!-- <button type="upload" class="btn btn-danger">Upload Here </button> -->
                                  <a>Upload</a> 
@@ -79,8 +81,8 @@
                                 <!-- The file uploads will be shown here -->
                                 <?php
                                  $modelLink = new Users;
-                                $currentImage =  $modelLink->displayInfo($data="image") ?>
-                                <a href="JavaScript:;"><img src="<?php echo '../images/photos/'.$currentImage?>" title="Current Banner"></a>
+                                 ?>
+                                <a href="JavaScript:;"><img src="<?php echo '../images/photos/'.$currentImage =  $modelLink->displayInfo($data="image")?>" class= "col-lg-12 col-md-12 col-sm-12 col-xs-12" title="Current Banner"></a>
                               
                             </ul><br>
                             <textarea  name="description" id="description" row="10"  cols="80">
@@ -97,15 +99,129 @@
                             <button type="submit" name="upload"  style=" float:right;"class ="btn btn-lg btn-primary">Upload</button>
                         </form>
                         </div>
-                </section>
+                </section> 
 
                 <section class="panel">
-                <header class="panel-heading">
-                        Change Front-Page Banner 
+                    <header class="panel-heading">
+                        Change Slides 
                         <span class="tools pull-right">
                             <a href="javascript:;" class="fa fa-chevron-down"></a>
                         </span>
                     </header>
+                    <div class="panel-body">
+                    <ul class="uploadViews col-lg-12">
+                        <h4 class='panel-heading'> ROOMS</h4>
+                        <form id="upload" method="post" action="../controllers/users.php" enctype="multipart/form-data">
+                            <a href="JavaScript:;"><img src="<?php echo '../images/photos/'.$currentImage =  $modelLink->displayInfo($data="slide1_1")?>" class= "col-lg-4 col-md-12 col-sm-12 col-xs-12" title="Current Banner"></a>
+                            <div id="drop" class="col-lg-2">
+                                <input required="" type="file" name="slide" style="background-color:transparent;" >
+                                <a>Image 1</a> <br><br>
+                                <input type="hidden" value="slide1_1" name="slide">
+                            <button type="submit" name="slide1"  style=" ;"class ="btn btn-lg btn-primary">Upload</button>
+
+                            </div>
+                        </form>
+                        <form id="upload" method="post" action="../controllers/users.php" enctype="multipart/form-data">
+                            <a href="JavaScript:;"><img src="<?php echo '../images/photos/'.$currentImage =  $modelLink->displayInfo($data="slide1_2")?>" class= "col-lg-4 col-md-12 col-sm-12 col-xs-12" title="Current Banner"></a>
+                            <div id="drop" class="col-lg-2">
+                                <input required="" type="file" name="slide" style="background-color:transparent;" >
+                                <a>Image 2</a> <br><br>
+                                <input type="hidden" value="slide1_2" name="slide">
+                            <button type="submit" name="slide1"  style=" ;"class ="btn btn-lg btn-primary">Upload</button>
+
+                            </div>
+                        </form>
+                        <form id="upload" method="post" action="../controllers/users.php" enctype="multipart/form-data">
+                            <a href="JavaScript:;"><img src="<?php echo '../images/photos/'.$currentImage =  $modelLink->displayInfo($data="slide1_3")?>" class= "col-lg-4 col-md-12 col-sm-12 col-xs-12" title="Current Banner"></a>
+                            <div id="drop" class="col-lg-2">
+                                <input required="" type="file" name="slide" style="background-color:transparent;" >
+                                <a>Image 3</a> <br><br>
+                                <input type="hidden" value="slide1_3" name="slide">
+                            <button type="submit" name="slide1"  style=" ;"class ="btn btn-lg btn-primary">Upload</button>
+
+                            </div>
+                        </form>
+                        </ul>
+                        <ul class="uploadViews col-lg-3">
+                            <h4  class='panel-heading'> EXTRAS</h4>
+                            <form id="upload" method="post" action="../controllers/users.php" enctype="multipart/form-data">
+                            <a href="JavaScript:;"><img src="<?php echo '../images/photos/'.$currentImage =  $modelLink->displayInfo($data="slide2_1")?>" class= "col-lg-4 col-md-12 col-sm-12 col-xs-12" title="Current Banner"></a>
+                            <div id="drop" class="col-lg-2">
+                                <input required="" type="file" name="slide" style="background-color:transparent;" >
+                                <a>Image 1</a> <br><br>
+                                <input type="hidden" value="slide2_1" name="slide">
+                            <button type="submit" name="slide2"  style=" ;"class ="btn btn-lg btn-primary">Upload</button>
+
+                            </div>
+                        </form>
+                        <form id="upload" method="post" action="../controllers/users.php" enctype="multipart/form-data">
+                            <a href="JavaScript:;"><img src="<?php echo '../images/photos/'.$currentImage =  $modelLink->displayInfo($data="slide2_2")?>" class= "col-lg-4 col-md-12 col-sm-12 col-xs-12" title="Current Banner"></a>
+                            <div id="drop" class="col-lg-2">
+                                <input required="" type="file" name="slide" style="background-color:transparent;" >
+                                <a>Image 2</a> <br><br>
+                                <input type="hidden" value="slide2_2" name="slide">
+                            <button type="submit" name="slide2"  style=" ;"class ="btn btn-lg btn-primary">Upload</button>
+
+                            </div>
+                        </form>
+                        <form id="upload" method="post" action="../controllers/users.php" enctype="multipart/form-data">
+                            <a href="JavaScript:;"><img src="<?php echo '../images/photos/'.$currentImage =  $modelLink->displayInfo($data="slide2_3")?>" class= "col-lg-4 col-md-12 col-sm-12 col-xs-12" title="Current Banner"></a>
+                            <div id="drop" class="col-lg-2">
+                                <input required="" type="file" name="slide" style="background-color:transparent;" >
+                                <a>Image 3</a> <br><br>
+                                <input type="hidden" value="slide2_3" name="slide">
+                            <button type="submit" name="slide2"  style=" ;"class ="btn btn-lg btn-primary">Upload</button>
+
+                            </div>
+                        </form>
+                        </ul><br>
+
+                        <ul class="uploadViews col-lg-3">
+                            <h4  class='panel-heading'data-toggle="modal" href="#myModal"> CAFETERIA</h4>
+                            <form id="upload" method="post" action="../controllers/users.php" enctype="multipart/form-data">
+                            <a href="JavaScript:;"><img src="<?php echo '../images/photos/'.$currentImage =  $modelLink->displayInfo($data="slide3_1")?>" class= "col-lg-4 col-md-12 col-sm-12 col-xs-12" title="Current Banner"></a>
+                            <div id="drop" class="col-lg-2">
+                                <input required="" type="file" name="slide" style="background-color:transparent;" >
+                                <a>Image 1</a> <br><br>
+                                <input type="hidden" value="slide3_1" name="slide">
+                            <button type="submit" name="slide3"  style=" ;"class ="btn btn-lg btn-primary">Upload</button>
+
+                            </div>
+                        </form>
+                        <form id="upload" method="post" action="../controllers/users.php" enctype="multipart/form-data">
+                            <a href="JavaScript:;"><img src="<?php echo '../images/photos/'.$currentImage =  $modelLink->displayInfo($data="slide3_2")?>" class= "col-lg-4 col-md-12 col-sm-12 col-xs-12" title="Current Banner"></a>
+                            <div id="drop" class="col-lg-2">
+                                <input required="" type="file" name="slide" style="background-color:transparent;" >
+                                <a>Image 2</a> <br><br>
+                                <input type="hidden" value="slide3_2" name="slide">
+                            <button type="submit" name="slide2"  style=" ;"class ="btn btn-lg btn-primary">Upload</button>
+
+                            </div>
+                        </form>
+                        <form id="upload" method="post" action="../controllers/users.php" enctype="multipart/form-data">
+                            <a href="JavaScript:;"><img src="<?php echo '../images/photos/'.$currentImage =  $modelLink->displayInfo($data="slide3_3")?>" class= "col-lg-4 col-md-12 col-sm-12 col-xs-12" title="Current Banner"></a>
+                            <div id="drop" class="col-lg-2">
+                                <input required="" type="file" name="slide" style="background-color:transparent;" >
+                                <a>Image 3</a> <br><br>
+                                <input type="hidden" value="slide3_3" name="slide">
+                            <button type="submit" name="slide1"  style=" ;"class ="btn btn-lg btn-primary">Upload</button>
+
+                            </div>
+                        </form>
+                            </ul>
+                            
+                    </div>
+                                
+                                
+                                    
+                               
+                        <!-- </ul><br> -->
+                        
+                        
+
+
+                        
+                   
                 </section>
                 
             </div>

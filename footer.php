@@ -41,7 +41,7 @@
     <!--/.footer-bottom--> 
 </footer>
 
-<div class="text-center copyright"> &copy ICT;<!--Powered by <a href="http://thebootstrapthemes.com">thebootstrapthemes.com</a>--></div>
+<div class="text-center copyright"> &copy; HOME AFTER;<!--Powered by <a href="http://thebootstrapthemes.com">thebootstrapthemes.com</a>--></div>
 
 <a href="#home" class="toTop scroll"><i class="fa fa-angle-up"></i></a>
 
@@ -65,6 +65,7 @@
 
 
 <script src="assets/jquery.js"></script>
+<script src="assets/jquery2.0.3.min.js"></script>
 
 <!-- wow script -->
 <script src="assets/wow/wow.min.js"></script>
@@ -91,7 +92,25 @@
 <script src="assets/script.js"></script>
 
 
+        <!-- @function for pagnnation, -->
+                <script>
+                       (function($){
+                         $(document).ready(function(){
 
+                          $('#pag1').click(function(){
+                            $('#pag1').addClass('active');
+                            $('#pag2').removeClass('active');
+                         })
+
+                         $('#pag2').click(function(){
+                            $('#pag2').addClass('active');
+                            $('#pag1').removeClass('active');
+                         })
+                         
+                        })
+                        
+                       })(jQuery)
+                </script>
 
 
 

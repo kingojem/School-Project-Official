@@ -151,9 +151,9 @@ include_once 'models/users.php';
             <!-- RoomCarousel -->
             <div id="RoomCarousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                <div class="item active"><img src="images/photos/8.jpg" class="img-responsive" alt="slide"></div>                
-                <div class="item  height-full"><img src="images/photos/9.jpg"  class="img-responsive" alt="slide"></div>
-                <div class="item  height-full"><img src="images/photos/10.jpg"  class="img-responsive" alt="slide"></div>
+                <div class="item active"><img src="<?php echo 'images/photos/'. $currentImage =  $modelLink->displayInfo($data="slide1_1");?>" class="img-responsive" alt="slide"></div>                
+                <div class="item  height-full"><img src="<?php echo 'images/photos/'.$currentImage = $modelLink->displayInfo($data="slide1_2");?>"  class="img-responsive" alt="slide"></div>
+                <div class="item  height-full"><img src="<?php echo 'images/photos/'.$currentImage =  $modelLink->displayInfo($data="slide1_3");?>"  class="img-responsive" alt="slide"></div>
                 </div>
                 <!-- Controls -->
                 <a class="left carousel-control" href="#RoomCarousel" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
@@ -168,9 +168,9 @@ include_once 'models/users.php';
             <!-- RoomCarousel -->
             <div id="TourCarousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                <div class="item active"><img src="images/photos/6.jpg" class="img-responsive" alt="slide"></div>
-                <div class="item  height-full"><img src="images/photos/3.jpg"  class="img-responsive" alt="slide"></div>
-                <div class="item  height-full"><img src="images/photos/4.jpg"  class="img-responsive" alt="slide"></div>
+                <div class="item active"><img src="<?php echo 'images/photos/'. $currentImage =  $modelLink->displayInfo($data="slide2_1");?>" class="img-responsive" alt="slide"></div>
+                <div class="item  height-full"><img src="<?php echo 'images/photos/'. $currentImage =  $modelLink->displayInfo($data="slide2_2");?>"  class="img-responsive" alt="slide"></div>
+                <div class="item  height-full"><img src="<?php echo 'images/photos/'. $currentImage =  $modelLink->displayInfo($data="slide2_3");?>"  class="img-responsive" alt="slide"></div>
                 </div>
                 <!-- Controls -->
                 <a class="left carousel-control" href="#TourCarousel" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
@@ -185,9 +185,9 @@ include_once 'models/users.php';
             <!-- RoomCarousel -->
             <div id="FoodCarousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                <div class="item active"><img src="images/photos/1.jpg" class="img-responsive" alt="slide"></div>
-                <div class="item  height-full"><img src="images/photos/2.jpg"  class="img-responsive" alt="slide"></div>
-                <div class="item  height-full"><img src="images/photos/5.jpg"  class="img-responsive" alt="slide"></div>
+                <div class="item active"><img src="<?php echo 'images/photos/'. $currentImage =  $modelLink->displayInfo($data="slide3_1");?>" class="img-responsive" alt="slide"></div>
+                <div class="item  height-full"><img src="<?php echo 'images/photos/'. $currentImage =  $modelLink->displayInfo($data="slide3_2");?>"  class="img-responsive" alt="slide"></div>
+                <div class="item  height-full"><img src="<?php echo 'images/photos/'. $currentImage =  $modelLink->displayInfo($data="slide3_2");?>"  class="img-responsive" alt="slide"></div>
                 </div>
                 <!-- Controls -->
                 <a class="left carousel-control" href="#FoodCarousel" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>

@@ -141,26 +141,24 @@ $helpers = '../helpers';
                                         </div>
                                     </div>
                                 </div>
-                                <?php
-                                    if($_SESSION['next_of_kin_name']== null){
-                                        ?>
-                                        <!-- <div aria-hidden ="true" aria-labelledby=myModalLabel role="dialog" tabindex="-1" id="myModal1" class="modal fade">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h3 class="modal-title" style="color:lemon; text-align:center">Profile Update Failed</h3>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                    <button type="button" class="btn btn-danger btn-lg" id="closey" data-dismiss="modal" >Ok</button>
-                                                    </div>
-
+                                    <div aria-hidden ="true" aria-labelledby=myModalLabel role="dialog" tabindex="-1" id="myModal11" class="modal fade">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" style="color:#40e240; text-align:center">Profile Up To Date</h5>
                                                 </div>
+                                                <!-- <div class="modal-body">
+                                                <button type="button" class="btn btn-danger btn-lg" id="closey" data-dismiss="modal" >Ok</button>
+                                                </div> -->
+
                                             </div>
-                                        </div>  -->
-                                        <?php
-                                        #this need review
-                                    }
-                                ?>
+                                        </div>
+                                    </div> 
+                                       
+                                       <?php
+                                           
+                                       ?>
+                               
                     </section>
                     <section class ="">
                         <div class="col-md-3 market-update-gd">
