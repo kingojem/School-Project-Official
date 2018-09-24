@@ -164,12 +164,12 @@
                             $status =false;
                             $img = $image;
                             if($data == 'slide1_1'){
-                                $sql="UPDATE `hostel_website_view` SET `post1`=? where `type`=?";
+                                
+                                $sql="UPDATE `hostel_website_view` SET `image`=? where `type`=?";
                                 $stmt=$this->database->prepare($sql);
                                 $stmt->execute([$img,'homepage-slides1']);
                                 $rows = $stmt->rowCount();
-                                
-                                   if($rows == 1){
+                                   if($stmt == 1){
                                         $status = true;
                                         return $status;
                                     }
@@ -179,7 +179,7 @@
                                 $stmt->execute([$img,'homepage-slides1']);
                                 $rows = $stmt->rowCount();
 
-                                    if($rows == 1){
+                                    if($stmt == 1){
                                         $status = true;
                                         return $status;
                                     }
@@ -189,7 +189,7 @@
                                 $stmt->execute([$img,'homepage-slides1']);
                                 $rows = $stmt->rowCount();
 
-                                    if($rows == 1){
+                                    if($stmt == 1){
                                         $status = true;
                                         return $status;
                                     }
@@ -199,7 +199,7 @@
                                 $stmt->execute([$img,'homepage-slides2']);
                                 $rows = $stmt->rowCount();
 
-                                    if($rows == 1){
+                                    if($stmt == 1){
                                         $status = true;
                                         return $status;
                                     }
@@ -209,7 +209,7 @@
                                 $stmt->execute([$img,'homepage-slides2']);
                                 $rows = $stmt->rowCount();
 
-                                    if($rows == 1){
+                                    if($stmt == 1){
                                         $status = true;
                                         return $status;
                                     }
@@ -219,7 +219,7 @@
                                 $stmt->execute([$img,'homepage-slides2']);
                                 $rows = $stmt->rowCount();
 
-                                    if($rows == 1){
+                                    if($stmt == 1){
                                         $status = true;
                                         return $status;
                                     }
@@ -229,7 +229,7 @@
                                 $stmt->execute([$img,'homepage-slides3']);
                                 $rows = $stmt->rowCount();
 
-                                    if($rows == 1){
+                                    if($stmt == 1){
                                         $status = true;
                                         return $status;
                                     }
@@ -239,7 +239,7 @@
                                 $stmt->execute([$img,'homepage-slides3']);
                                 $rows = $stmt->rowCount();
 
-                                    if($rows == 1){
+                                    if($stmt == 1){
                                         $status = true;
                                         return $status;
                                     }
@@ -249,7 +249,47 @@
                                 $stmt->execute([$img,'homepage-slides3']);
                                 $rows = $stmt->rowCount();
 
-                                    if($rows == 1){
+                                    if($stmt == 1){
+                                        $status = true;
+                                        return $status;
+                                    }
+                            }else if($data == 'slide_caption_a'){
+                                $sql="UPDATE `hostel_website_view` SET `image`=? where `type`=?";
+                                $stmt=$this->database->prepare($sql);
+                                $stmt->execute([$img,'homepage-slides-caption']);
+                                $rows = $stmt->rowCount();
+
+                                    if($stmt == 1){
+                                        $status = true;
+                                        return $status;
+                                    }
+                            }else if($data == 'slide_caption_b'){
+                                $sql="UPDATE `hostel_website_view` SET `post1`=? where `type`=?";
+                                $stmt=$this->database->prepare($sql);
+                                $stmt->execute([$img,'homepage-slides-caption']);
+                                $rows = $stmt->rowCount();
+
+                                    if($stmt == 1){
+                                        $status = true;
+                                        return $status;
+                                    }
+                            }else if($data == 'slide_caption_c'){
+                                $sql="UPDATE `hostel_website_view` SET `post2`=? where `type`=?";
+                                $stmt=$this->database->prepare($sql);
+                                $stmt->execute([$img,'homepage-slides-caption']);
+                                $rows = $stmt->rowCount();
+
+                                    if($stmt == 1){
+                                        $status = true;
+                                        return $status;
+                                    }
+                            }else if($data == 'logo1_1'){
+                                $sql="UPDATE `hostel_website_view` SET `image`=? where `type`=?";
+                                $stmt=$this->database->prepare($sql);
+                                $stmt->execute([$img,'homepage-logo']);
+                                $rows = $stmt->rowCount();
+
+                                    if($stmt == 1){
                                         $status = true;
                                         return $status;
                                     }
@@ -363,6 +403,42 @@
                                 if($stmt == true){
                                      $txt = $stmt->fetch();
                                     return  $txt['post2'];
+                                }
+                        }
+                        if($data == "slide_caption_a"){
+                            $sql= "SELECT * FROM hostel_website_view where `type`= ? ";
+                            $stmt=$this->database->prepare($sql);
+                                $stmt->execute(['homepage-slides-caption']);
+                                if($stmt == true){
+                                     $txt = $stmt->fetch();
+                                    return  $txt['image'];
+                                }
+                        }
+                        if($data == "slide_caption_b"){
+                            $sql= "SELECT * FROM hostel_website_view where `type`= ? ";
+                            $stmt=$this->database->prepare($sql);
+                                $stmt->execute(['homepage-slides-caption']);
+                                if($stmt == true){
+                                     $txt = $stmt->fetch();
+                                    return  $txt['post1'];
+                                }
+                        }
+                        if($data == "slide_caption_c"){
+                            $sql= "SELECT * FROM hostel_website_view where `type`= ? ";
+                            $stmt=$this->database->prepare($sql);
+                                $stmt->execute(['homepage-slides-caption']);
+                                if($stmt == true){
+                                     $txt = $stmt->fetch();
+                                    return  $txt['post2'];
+                                }
+                        }
+                        if($data == "logo1_1"){
+                            $sql= "SELECT * FROM hostel_website_view where `type`= ? ";
+                            $stmt=$this->database->prepare($sql);
+                                $stmt->execute(['homepage-logo']);
+                                if($stmt == true){
+                                     $txt = $stmt->fetch();
+                                    return  $txt['image'];
                                 }
                         }
                        #ends

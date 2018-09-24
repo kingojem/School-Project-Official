@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 if($_SESSION['users_role_info'] =='admin'){
     header("location:index.php");
 }elseif($_SESSION['users_role_info'] =='user'){

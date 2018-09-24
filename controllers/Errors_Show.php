@@ -129,7 +129,13 @@ class Errors_Show{
         ?>
        <div class ="alert alert-warning" style="text-align:center; font-size:15px;color:black;" >Error Uploading Your Image Try Ensure you in the right format(png/jpg/jpeg) and right image size and Dimention.<br> NOTICE: All Fields Are Required</div>
        <?php
-       //Checks if User Alredy Exists, Flags This Error if True
+       //ERROR IN IMAGE UPLOAD FROM ADMIN TO USER VIEW
+    }
+    if(isset($_GET['ERrrr'])){
+        ?>
+       <div class ="alert alert-warning" style="text-align:center; font-size:15px;color:black;" >CHANGING CAPTION FAILED</div>
+       <?php
+       //CHANGING SLIDER CAPTION FAILED
     }
     if(isset($_GET['error34567%4'])){
         ?>

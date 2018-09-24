@@ -1,8 +1,7 @@
 <?php 
 
 include 'header.php';
-include_once 'models/users.php';
- $modelLink = new Users;
+
 
    
 ?>

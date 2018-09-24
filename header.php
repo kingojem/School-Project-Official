@@ -1,6 +1,10 @@
 <?php
 error_reporting(0);
 session_start();
+
+include_once 'models/users.php';
+ $modelLink = new Users;
+
 ?>
 <!DOCTYPE html>
 <html >
@@ -52,7 +56,7 @@ session_start();
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href=index.php><img src="images/logo.png"  alt="holiday crown"></a>
+      <a class="navbar-brand" href=index.php><img src="<?php echo 'images/'. $currentImage =  $modelLink->displayInfo($data="logo1_1");?>"  alt="holiday crown"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

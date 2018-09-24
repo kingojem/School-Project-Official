@@ -97,14 +97,28 @@
                        (function($){
                          $(document).ready(function(){
 
-                          $('#pag1').click(function(){
-                            $('#pag1').addClass('active');
-                            $('#pag2').removeClass('active');
-                         })
+                            var pag = $('#pag1');
+                                if(pag.hasClass('active')){
+                                    $('#pag1_span').removeClass('pag_span').addClass('sr-only');
+                                    $('#pag2_span').removeClass('sr-only').addClass('pag_span');
+                                }else{
+                                    $('#pag2_span').removeClass('pag_span').addClass('sr-only');
+                                    $('#pag1_span').removeClass('sr-only').addClass('pag_span');
+                                    
+                                }
+                            $('#pag1').click(function(){
+                                $('#pag1').addClass('active');
+                                $('#pag2').removeClass('active');
+                                $('#pag1_span').removeClass('pag_span').addClass('sr-only');
+                                $('#pag2_span').removeClass('sr-only').addClass('pag_span');
+                                
+                            })
 
                          $('#pag2').click(function(){
                             $('#pag2').addClass('active');
                             $('#pag1').removeClass('active');
+                            $('#pag2_span').removeClass('pag_span').addClass('sr-only');
+                            $('#pag1_span').removeClass('sr-only').addClass('pag_span');
                          })
                          
                         })

@@ -9,6 +9,10 @@ h1, h2, h3 {margin: 0;}
 ul, ol {margin: 0;}
 p {margin: 0;}
 
+
+.panelEdit{
+    display:none;
+}
 .show{
     display: block;
 }
@@ -819,6 +823,7 @@ ul.top-menu>li>a:hover,ul.top-menu>li>a:focus {
     height:auto;
     overflow:scroll;
     border:1px solid silver;
+    /* padding:0px; */
 
 }
 .uploadViews img{
@@ -1415,13 +1420,22 @@ h3.agileits-icons-title {
     width: 33.33%;
 }
 }
+@media(max-width:992px){
+    .slide{
+        width:60% !important;
+        padding-right:0px !important;
+        padding-left:0px !important;
+        margin-left:0px;
+    }
+}
 @media (max-width:991px){
 	h3.agileits-icons-title {
 		font-size: 28px;
 	}
 	h3.icon-subheading {
 		font-size: 22px;
-	}
+    }
+    
 }
 @media (max-width:768px){
 	h3.agileits-icons-title {

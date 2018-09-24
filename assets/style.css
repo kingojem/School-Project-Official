@@ -281,8 +281,8 @@ div.selector option{ padding: 10px;}
 .room-features .size-price span{display: block;font-size: 2em;}
 
 
-.gallery .gallery-image{margin-bottom: 2em;display: inline-block;}
-.gallery .gallery-image img{width: 100%;}
+/* .gallery .gallery-image{margin-bottom: 2em;display: inline-block;}
+.gallery .gallery-image img{width: 100%;} */
 
 body::-webkit-scrollbar {
         width: 6px;
