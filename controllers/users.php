@@ -395,67 +395,7 @@ class Uploads{
                         header("location:../views/ed_home.php");
                     }
                     die();
-                    // if($slide == 'slide1_1'){
                     
-                    //     if($users->updateUserView2($data='slide1_1',$newFileName) == true){
-                        
-                    //         header("location:../views/ed_home.php");
-                    //     }
-                    //     die();
-                    // }else if($slide == 'slide1_2'){
-                        
-                    //     if($users->updateUserView2($data='slide1_2',$newFileName)== true){
-                    //         header("location:../views/ed_home.php");
-                    //     }
-                    //     die();
-                    // }else if($slide =='slide1_3'){
-                    //     if($users->updateUserView2($data='slide1_3',$newFileName)== true){
-                    //         header("location:../views/ed_home.php");
-                    //     }
-                    //     die();
-                    // }else if($slide =='slide2_1'){
-                    //     if($users->updateUserView2($data='slide2_1',$newFileName)== true){
-                    //         header("location:../views/ed_home.php");
-                    //     }
-                    //     die();
-                    // }else if($slide =='slide2_2'){
-                    //     if($users->updateUserView2($data='slide2_2',$newFileName)== true){
-                    //         header("location:../views/ed_home.php");
-                    //     }
-                    //     die();
-                    // }else if($slide =='slide2_3'){
-                    //     if($users->updateUserView2($data='slide2_3',$newFileName)== true){
-                    //         header("location:../views/ed_home.php");
-                    //     }
-                    //     die();
-                    // }else if($slide =='slide3_1'){
-                    //     if($users->updateUserView2($data='slide3_1',$newFileName)== true){
-                    //         header("location:../views/ed_home.php");
-                    //     }
-                    //     die();
-                    // }else if($slide =='slide3_2'){
-                    //     if($users->updateUserView2($data='slide3_2',$newFileName)== true){
-                    //         header("location:../views/ed_home.php");
-                    //     }
-                    //     die();
-                    // }else if($slide =='slide3_3'){
-                    //     if($users->updateUserView2($data='slide3_3',$newFileName)== true){
-                    //         header("location:../views/ed_home.php");
-                    //     }
-                    //     die();
-                    // }else if($slide == 'slide_caption_a'){
-                    //     if($users->updateUserView2($data='slide_caption_a',$newFileName)== true){
-                    //         header("location:../views/ed_home.php");
-                    //     }
-                    // }else if ($slide == 'slide_caption_b'){
-                    //     if($users->updateUserView2($data='slide_caption_b',$newFileName)== true){
-                    //         header("location:../views/ed_home.php");
-                    //     }
-                    // }else if ($slide = 'slide_caption_c'){
-                    //     if($users->updateUserView2($data='slide_caption_c',$newFileName)== true){
-                    //         header("location:../views/ed_home.php");
-                    //     }
-                    // }
                 }
                     #@ A caption is displayed to indicate the section of the slides pivate function
                     #params to validate
