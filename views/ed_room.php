@@ -45,7 +45,7 @@
             
         }
         include_once HELPERS.'/session.php';
-        include_once MODELS.'/users.php';
+        include_once MODELS.'/Users.php';
     ?>
         <?php include_once 'header.php';?>
         <?php include_once 'sidebar.php';?>	
@@ -53,30 +53,72 @@
             if(isset($_SESSION['users_role_info'])){
 
                 if($_SESSION['users_role_info'] =='admin'){
+                    include_once '../controllers/Errors_Show.php';
+                    $errors = new Errors_Show();
+                    $modelLink = new Users;
+                                
                     ?>
+
                         <section id="main-content">
 	                        <section class="wrapper">
                                 <div class="form-w3layouts">
                                     <div class="row">
+                                        
+                                    
+                                
+                            
                                         <section class="panel">
+
                                             <header class="panel-heading">
                                                 Change Rooms
                                                 <span class="tools pull-right">
                                                     <a href="javascript:;" class="fa fa-chevron-down"></a>
                                                 </span>
                                             </header>
+                                            <!-- <img src="<?php #echo '../images/photos/8.jpg'?>"   class= "col-lg-8 col-md-12 col-sm-12 col-xs-12"  title="slide_image" style="margin-left:15px;"> -->
+                                            
                                             <div class="panel-body" ><!--id="panel_body"-->
                                             <ul class="uploadViews ">
-                        <h4 class='panel-heading'><?php echo 'gold'?>  &nbsp;  <a data-toggle="modal" href="#myModal" class="" title="Edit Slider Caption"><i class="fa fa-edit"></i></a></h4>
+                        <h4 class='panel-heading'><?php echo $category ='gold'?>  &nbsp;  <a data-toggle="modal" href="#myModal" class=""  title="Change Room Category"><i class="fa fa-edit"></i></a></h4>
                         <form id="upload" method="post" action="../controllers/users.php" enctype="multipart/form-data">
                             <ul class="uploadViews" style="border:none !important;overflow:hidden !important;">
-                            <a href="JavaScript:;"><img src="<?php echo '../images/photos/8.jpg'?>"   class= "col-lg-8 col-md-12 col-sm-12 col-xs-12"  title="slide_image" style="margin-left:15px;"></a>
-                            
+                            <a href="JavaScript:;">
+                                <div id="RoomDetails" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <!-- <div class="item active"><img src="images/photos/8.jpg" class="img-responsive" alt="slide"></div> -->
+                                        <div class="item  height-full"><img src="images/photos/9.jpg"  class="img-responsive" alt="slide"></div>
+                                        <div class="item  height-full"><img src="images/photos/10.jpg"  class="img-responsive" alt="slide"></div>
+                                    </div>
+                                    <!-- Controls -->
+                                    <a class="left carousel-control" href="#RoomDetails" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+                                    <a class="right carousel-control" href="#RoomDetails" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
+                                </div>
+                                <div style="position:absolute;top:40%;left:60% ; background-color:black; height:5%;padding:4px; color:red " class="">Gold Image 23</div>
+                            </a>
+
+                                <span style="color:red"> <br><br>* These is a 3 image slide by selected category, our Current selected Category is <span style="color: blue"><?php echo $category?></span>
+                        
+                           
                             </ul>
+                            <div  style="margin-top:25px;margin-left:10%; width:60%;">
+                            <select  class = "form-control " name="rooms_category" id="rooms_category">
+                                <option value="null">Select Sub Category</option>
+                                    <option value="gold_single">Gold single</option>
+                                    <option value="gold_double">Gold Double(Me + 1)</option>
+                                    <option value="silver_single">Gold Single</option>
+                            </select><br>
+                            <select  class = "form-control " name="rooms_category" id="rooms_category">
+                                <option value="null">Select Image Number</option>
+                                    <option value="image_1">Image 1</option>
+                                    <option value="image_2">Image 2</option>
+                                    <option value="image_3">Image 3</option>
+                            </select>
+                        </div>
                             <div id="drop" class="col-lg-3" >
                                 <input required="" type="file" name="slide" style="background-color:transparent;" >
-                                <a>Image 1</a> <br><br>
-                                <input type="hidden" value="slide1_1" name="slide">
+                                <a>Pick Image</a> <br><br>
+                                <!-- <input type="hidden" value="" name="slide"> -->
+                                
                             <button type="submit" name="slide1"  style=" ;"class ="btn btn-lg btn-primary">Upload</button>
 
                             </div>
@@ -84,12 +126,36 @@
                         </ul>
                                             </div>
                                         </section>
+
+                        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button aria-hidden="true" data-dismiss="modal" class="close" id ="close" type="button">×</button>
+                                        <h4 class="modal-title" style="color:blue;">Change Category</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="action="../controllers/users.php"" method="post">
+                                            <select name="slide_picker" id="slide_picker" class="form-control">
+                                                <option value="slide_caption_?">Choose Caption</option>
+                                                <option value="slide_caption_a"> Slide 1 Currently (<?php echo  $currentImage =  $modelLink->displayInfo($data="slide_caption_a")?>)</option>
+                                                <option value="slide_caption_b">Slide 2 Currently (<?php echo  $currentImage =  $modelLink->displayInfo($data="slide_caption_b")?>)</option>
+                                                                <option value="slide_caption_c">Slide 3 Currently (<?php echo  $currentImage =  $modelLink->displayInfo($data="slide_caption_c")?>)</option>
+                                            </select> <br><br>
+                                            <textarea name="caption" id="caption" cols="30" rows="10" aria-resizable="false" class="form-control"></textarea><br>
+                                            <button type="submit" name="slide_caption"  style=" ;"class ="btn btn-lg btn-success">Change</button>
+                                            
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                                     </div>
                                 </div>
                             </section>
                         </section>
 
-
+ 
 
                         <script src="assets/js/bootstrap.js"></script>
                         <script src="assets/js/jquery.dcjqaccordion.2.7.js"></script>

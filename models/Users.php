@@ -40,6 +40,7 @@
                         $stmt = $this->database->prepare($sql);
                         $stmt->execute([$this->MatricNo, $this->MatricNo, $this->MatricNo]);
                         $checkIfExist = $stmt->rowCount();
+                       
                         if($checkIfExist == 1){
                                 $sql = "SELECT * FROM tenant where matric_no = ? or mobile = ? or email = ?";
                                 $stmt = $this->database->prepare($sql);
