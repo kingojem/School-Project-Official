@@ -75,28 +75,38 @@
                                                     <a href="javascript:;" class="fa fa-chevron-down"></a>
                                                 </span>
                                             </header>
-                                            <!-- <img src="<?php #echo '../images/photos/8.jpg'?>"   class= "col-lg-8 col-md-12 col-sm-12 col-xs-12"  title="slide_image" style="margin-left:15px;"> -->
                                             
                                             <div class="panel-body" ><!--id="panel_body"-->
                                             <ul class="uploadViews ">
-                        <h4 class='panel-heading'><?php echo $category ='gold'?>  &nbsp;  <a data-toggle="modal" href="#myModal" class=""  title="Change Room Category"><i class="fa fa-edit"></i></a></h4>
+                                            <?php
+    if(isset($_POST['select_category'])):
+        $category = $_POST['change_category'];
+            
+        else: $category = "<span style = color:red;font-weight:bold>Select The Category To Upload</span>";
+    endif;
+?>
+                        <h4 class='panel-heading'><?php echo $category;?>  &nbsp;  <a data-toggle="modal" href="#myModal" class=""  title="Change Room Category"><i class="fa fa-edit"></i></a></h4>
                         <form id="upload" method="post" action="../controllers/users.php" enctype="multipart/form-data">
                             <ul class="uploadViews" style="border:none !important;overflow:hidden !important;">
                             <a href="JavaScript:;">
-                                <div id="RoomDetails" class="carousel slide" data-ride="carousel">
+                                            <!-- <img src="<?php #echo '../images/photos/8.jpg'?>"   class= "col-lg-8 col-md-12 col-sm-12 col-xs-12"  title="slide_image" style="margin-left:15px;"> -->
+
+                                <div id="RoomDetails" class="carousel slide" style="width:auto; height:auto" data-ride="carousel">
                                     <div class="carousel-inner">
-                                        <!-- <div class="item active"><img src="images/photos/8.jpg" class="img-responsive" alt="slide"></div> -->
-                                        <div class="item  height-full"><img src="images/photos/9.jpg"  class="img-responsive" alt="slide"></div>
-                                        <div class="item  height-full"><img src="images/photos/10.jpg"  class="img-responsive" alt="slide"></div>
+                                        <div class="item active"><img src="../images/photos/8.jpg" class="col-lg-8 col-md-12 col-sm-12 col-xs-12 img-responsive" alt="slide"  title="slide_image" style="margin-left:15px;"></div>
+                                        <div class="item  height-full"><img src="../images/photos/7.jpg"  class="col-lg-8 col-md-12 col-sm-12 col-xs-12 img-responsive" alt="slide" title="slide_image" style="margin-left:15px;"></div>
+                                        <div class="item  height-full"><img src="../images/photos/81.jpg"  class=" col-lg-8 col-md-12 col-sm-12 col-xs-12 img-responsive" alt="slide" title="slide_image" style="margin-left:15px;"></div>
+
+                                        <!-- <a class="left carousel-control" href="#RoomDetails" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+                                        <a class="right carousel-control" href="#RoomDetails" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>  -->
+
                                     </div>
                                     <!-- Controls -->
-                                    <a class="left carousel-control" href="#RoomDetails" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-                                    <a class="right carousel-control" href="#RoomDetails" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
                                 </div>
                                 <div style="position:absolute;top:40%;left:60% ; background-color:black; height:5%;padding:4px; color:red " class="">Gold Image 23</div>
                             </a>
 
-                                <span style="color:red"> <br><br>* These is a 3 image slide by selected category, our Current selected Category is <span style="color: blue"><?php echo $category?></span>
+                                <span style="color:red"> <br><br>* These is a 3 image slide by Selected  Sub category, our Current selected Category is <span style="color: blue"><?php echo $category?></span>
                         
                            
                             </ul>
@@ -135,9 +145,20 @@
                                         <h4 class="modal-title" style="color:blue;">Change Category</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="action="../controllers/users.php"" method="post">
+                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method = "post">
+                                        <select name="change_category" id="slide_picker" class="form-control">
+                                                <!-- <option>Select Category</option> -->
+                                                <option value="<?php echo  $currentImage =  $modelLink->displayInfo($data="room_category_a")?>">  <?php echo  $currentImage =  $modelLink->displayInfo($data="room_category_a")?></option>
+                                                <option value="<?php echo  $currentImage =  $modelLink->displayInfo($data="room_category_b")?>"> <?php echo  $currentImage =  $modelLink->displayInfo($data="room_category_b")?></option>
+                                                <option value="<?php echo  $currentImage =  $modelLink->displayInfo($data="room_category_c")?>"> <?php echo  $currentImage =  $modelLink->displayInfo($data="room_category_c")?></option>
+                                            </select> <br>
+                                            <button type="submit" name="select_category"  style=" "class ="btn btn-md btn-success">Ok</button>
+
+                                        </form>
+                                        <hr>
+                                        <form action="../controllers/users.php" method="post">
                                             <select name="slide_picker" id="slide_picker" class="form-control">
-                                                <option value="slide_caption_?">Choose Caption</option>
+                                                <option value="slide_caption_?">Change Category Name</option>
                                                 <option value="slide_caption_a"> Slide 1 Currently (<?php echo  $currentImage =  $modelLink->displayInfo($data="slide_caption_a")?>)</option>
                                                 <option value="slide_caption_b">Slide 2 Currently (<?php echo  $currentImage =  $modelLink->displayInfo($data="slide_caption_b")?>)</option>
                                                                 <option value="slide_caption_c">Slide 3 Currently (<?php echo  $currentImage =  $modelLink->displayInfo($data="slide_caption_c")?>)</option>
