@@ -442,6 +442,33 @@
                                     return  $txt['image'];
                                 }
                         }
+                        if($data == "room_category_a"){
+                            $sql= "SELECT * FROM hostel_website_view where `type` = ?";
+                            $stmt = $this->database->prepare($sql);
+                            $stmt->execute(['homepage-room-category']);
+                                if($stmt == true){
+                                    $txt = $stmt->fetch();
+                                    return $txt['image'];
+                                }
+                        }
+                        if($data == "room_category_b"){
+                            $sql= "SELECT * FROM hostel_website_view where `type` = ?";
+                            $stmt = $this->database->prepare($sql);
+                            $stmt->execute(['homepage-room-category']);
+                                if($stmt == true){
+                                    $txt = $stmt->fetch();
+                                    return $txt['post1'];
+                                }
+                        }
+                        if($data == "room_category_c"){
+                            $sql= "SELECT * FROM hostel_website_view where `type` = ?";
+                            $stmt = $this->database->prepare($sql);
+                            $stmt->execute(['homepage-room-category']);
+                                if($stmt == true){
+                                    $txt = $stmt->fetch();
+                                    return $txt['post2'];
+                                }
+                        }
                        #ends
                     }
 
