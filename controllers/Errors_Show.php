@@ -133,7 +133,7 @@ class Errors_Show{
     }
     if(isset($_GET['ERrrr'])){
         ?>
-       <div class ="alert alert-warning" style="text-align:center; font-size:15px;color:black;" >CHANGING CAPTION FAILED</div>
+       <div class ="alert alert-warning" style="text-align:center; font-size:15px;color:black;" >CHANGING CAPTION FAILED</div> 
        <?php
        //CHANGING SLIDER CAPTION FAILED
     }

@@ -52,6 +52,8 @@ class UsersControl{
             }if(isset($_POST['slide_caption'])){
                 
                $upload->slide_caption();
+            }if(isset($_POST['room_category'])){
+                $upload->room_category();
             }
          }else{
             $flagError = $this->errors->noSession();
@@ -301,6 +303,20 @@ class Uploads{
                             }
                     }
 
+                    public function room_category(){
+                        $errors = new Web_Edit_Error;
+                        $caption = ucfirst(strtolower($_POST['caption']));
+                        $slide_caption = $_POST['room_picker'];
+                            if(empty($caption) || $slide_caption == 'room_category_?'){
+                                $errors->warning();
+                            }else{
+                                 $this->change_room_reload($data = $caption,$data2 = $slide_caption);
+                                // echo 'here';
+                                
+                            }
+                    }
+
+
         public function slides_logo(){
             $errors = new Web_Edit_Error;
             $slide = $_POST['slide'];
@@ -399,6 +415,19 @@ class Uploads{
                 }
                     #@ A caption is displayed to indicate the section of the slides pivate function
                     #params to validate
+
+        #@params for the home caption changing
+
+                private function change_room_reload($data1, $data2){
+                    $newFileName = $data1;
+                    $slide = $data2;
+                    $users = new Users();
+                    if($users->updateUserView2($data="$slide",$newFileName) == true){
+                        
+                        header("location:../views/ed_room.php");
+                    }
+                    die();
+                }
                
 }
 ?>

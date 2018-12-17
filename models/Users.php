@@ -96,6 +96,7 @@
                             }
                             return $status;
                     }
+                        //Get The Amount available users in the database, with a private function That displays the nmber of Approved Users
                     public function getUsers($bookings=true ){
                         if($bookings){
                             return $this->approved(); 
@@ -114,6 +115,8 @@
                                 return $state = $stmt->rowCount();
                             }
                         }
+
+                        # User update Biodat in the database
                     public function updateUser($data=[]){
                         $status = false;
                         $user = $_SESSION['matric_no'];
@@ -278,6 +281,36 @@
                                 $sql="UPDATE `hostel_website_view` SET `post2`=? where `type`=?";
                                 $stmt=$this->database->prepare($sql);
                                 $stmt->execute([$img,'homepage-slides-caption']);
+                                $rows = $stmt->rowCount();
+
+                                    if($stmt == 1){
+                                        $status = true;
+                                        return $status;
+                                    }
+                            }else if($data == 'room_category_a'){
+                                $sql="UPDATE `hostel_website_view` SET `image`=? where `type`=?";
+                                $stmt=$this->database->prepare($sql);
+                                $stmt->execute([$img,'homepage-room-category']);
+                                $rows = $stmt->rowCount();
+
+                                    if($stmt == 1){
+                                        $status = true;
+                                        return $status;
+                                    }
+                            }else if($data == 'room_category_b'){
+                                $sql="UPDATE `hostel_website_view` SET `post1`=? where `type`=?";
+                                $stmt=$this->database->prepare($sql);
+                                $stmt->execute([$img,'homepage-room-category']);
+                                $rows = $stmt->rowCount();
+
+                                    if($stmt == 1){
+                                        $status = true;
+                                        return $status;
+                                    }
+                            }else if($data == 'room_category_c'){
+                                $sql="UPDATE `hostel_website_view` SET `post2`=? where `type`=?";
+                                $stmt=$this->database->prepare($sql);
+                                $stmt->execute([$img,'homepage-room-category']);
                                 $rows = $stmt->rowCount();
 
                                     if($stmt == 1){
@@ -468,6 +501,17 @@
                                     $txt = $stmt->fetch();
                                     return $txt['post2'];
                                 }
+                        }
+                        if($data == "room_subcategory"){
+                            $sql = "SELECT * FROM hostel_website_view where `type` = ?";
+                            $stmt = $this->database->prepare($sql);
+                            $stmt->execute(['room-category-subcategory']);
+                                if($stmt == true){
+                                    $txt = $stmt ->fetch();
+                                        
+                                    //  return var_dump($txt);
+                                }
+
                         }
                        #ends
                     }

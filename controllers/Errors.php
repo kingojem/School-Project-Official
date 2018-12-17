@@ -75,10 +75,14 @@ $index = '../';
 
     class Web_Edit_Error{
          public function notice(){
-             header("location:../views/ed_home.php?rrr=err56%4");   
+            header("location:../views/ed_home.php?rrr=err56%4");   
         }
         public function CAPTION(){
             header("location:../views/ed_home.php?ERrrr=err56%4");  
+        }
+        public function warning(){
+            header("location:../views/ed_room.php?ERrrr=err56%4");  
+
         }
     }
     
