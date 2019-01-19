@@ -30,7 +30,7 @@ class LoginUser{
 <div class="log-w3">
 <div class="w3layouts-main">
 	<h2>Sign In Now</h2>
-		<form action="controllers/users.php" method="post">
+		<form action="controllers/users.php" method="post" >
 			<legend style="color:#64138a"> <br>Welcome! Login To Continue</legend>
 			<input type="text" class="ggg" id= "username" name="username" placeholder="Matric. No./Email/Mobile" required="">
 			<input type="password" class="ggg"  id= "password" name="password" placeholder="PASSWORD" required="">

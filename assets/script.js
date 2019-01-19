@@ -50,4 +50,10 @@ $('.carousel').swipe( {
 
  //Written By Me..... AjaX For Form Validation
 
+ //Simple Javascript Validation
+
+ function ValidationInput(the_string){
+     
+ }
+
  

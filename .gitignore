@@ -7,3 +7,4 @@ images/photos/banner1 - Copy.jpg
 *.txt
 views/untitled-1.htm
 views/test.php
+.gitignore
